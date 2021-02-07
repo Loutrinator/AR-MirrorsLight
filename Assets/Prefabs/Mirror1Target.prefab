@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1592924062379490636}
   - component: {fileID: 3831775858670258883}
   m_Layer: 0
-  m_Name: ImageTarget
+  m_Name: Mirror1Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: 4bc5fd733b147194692297d23f623541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: MirrorTarget
+  mTrackableName: MirrorTarget1
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/MirrorsLight.xml
   mAspectRatio: 1

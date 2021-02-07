@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1715988477942573322}
   - component: {fileID: 2341786012455347887}
   - component: {fileID: 548109507800191589}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Lense
   m_TagString: Untagged
   m_Icon: {fileID: 0}

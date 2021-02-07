@@ -3,67 +3,58 @@ using UnityEngine;
 
 public class LaserSource : MonoBehaviour
 {
-    public int amountOfBounces = 2;
-    public LineRenderer laserPrefab;
-    private LineRenderer laser;
+	public int maxBounces = 10;
+	public LineRenderer laser;
 
-    private List<Vector3> positions;
+	private int _mirrorLayer;
+	private int _blockerLayer;
 
-    private void Start()
-    {
-        positions = new List<Vector3>();
-        StartEmitting();
-    }
+	private List<Vector3> _positions = new List<Vector3>();
 
-    private void StartEmitting()
-    {
-        laser = Instantiate(laserPrefab, Vector3.zero, Quaternion.Euler(0, 90, 0), transform);
-    }
+	private void Awake()
+	{
+		_mirrorLayer = LayerMask.NameToLayer("Mirror");
+		_blockerLayer = LayerMask.NameToLayer("Blocker");
+	}
 
-    void FixedUpdate()
-    {
-        ComputeLaser();
-    }
-    void ComputeLaser()
-    {
-        positions.Clear();
-        laser.positionCount = positions.Count;
-        positions.Add(transform.position);
+	private void FixedUpdate()
+	{
+		ComputeLaser();
+	}
 
-       
-        
-        Debug.Log( ShootRaycast(0,transform.forward));
-        Debug.Log(positions);
-        laser.positionCount = positions.Count;
-        laser.SetPositions(positions.ToArray());
-    }
+	private void ComputeLaser()
+	{
+		_positions.Clear();
+		_positions.Add(laser.transform.position);
 
-    private bool ShootRaycast(int amountShot, Vector3 forward)
-    {
-        if (amountShot >= amountOfBounces)
-        {
-            return true;
-        }
-        
-        RaycastHit hit;
-        if (Physics.Raycast(positions[positions.Count-1], forward, out hit, 10f))
-        {
-            Debug.Log(hit);
-            positions.Add(hit.point);
-            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Mirror"))
-            {
-                //v1 = -2 * (v0 . N) * N + v0
-                Vector3 v0 = forward.normalized;
-                Vector3 v1 = Vector3.Reflect(v0, hit.normal);//-2 * Vector3.Dot(v0,hit.normal) * hit.normal + v0;
-                return ShootRaycast(amountShot++,v1);
-            }
-            
-        }else //if(positions.Count <= 1)
-        {
-            
-            positions.Add(forward*1000);
-        }
+		ShootRaycast(maxBounces, transform.right);
+			
+		laser.positionCount = _positions.Count;
+		laser.SetPositions(_positions.ToArray());
+	}
 
-        return false;
-    }
+	private void ShootRaycast(int boncesLeft, Vector3 forward)
+	{
+		if (boncesLeft == 0)
+		{
+			return;
+		}
+
+		int mask = (1 << _mirrorLayer) | (1 << _blockerLayer);
+		if (Physics.Raycast(_positions[_positions.Count - 1], forward, out RaycastHit hit, 10f, mask))
+		{
+			_positions.Add(hit.point);
+			if (hit.transform.gameObject.layer == _mirrorLayer)
+			{
+				//v1 = -2 * (v0 . N) * N + v0
+				Vector3 v0 = forward.normalized;
+				Vector3 v1 = Vector3.Reflect(v0, hit.normal); //-2 * Vector3.Dot(v0,hit.normal) * hit.normal + v0;
+				ShootRaycast(boncesLeft-1, v1);
+			}
+		}
+		else
+		{
+			_positions.Add(forward * 1000);
+		}
+	}
 }

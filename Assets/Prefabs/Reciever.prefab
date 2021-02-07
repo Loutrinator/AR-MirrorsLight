@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2801894344104370806}
   - component: {fileID: 1246810566938029523}
   - component: {fileID: 3938812197728917785}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Reciever
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 5137072736174970093}
   - component: {fileID: 8638801450133337450}
   - component: {fileID: 7923125097197704202}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: prism
   m_TagString: Untagged
   m_Icon: {fileID: 0}
