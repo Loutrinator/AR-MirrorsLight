@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3817908555232117999}
   - component: {fileID: 1048936875016733830}
   - component: {fileID: 8380535654793698506}
-  - component: {fileID: 430385941961330351}
   m_Layer: 8
   m_Name: Mirror surface
   m_TagString: Untagged
@@ -80,20 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &430385941961330351
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3979920624282999880}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 3973057433808857224, guid: c4d03a94595bd1145b64b489e17eede0, type: 3}
 --- !u!1 &5730118013536926900
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,7 +90,6 @@ GameObject:
   - component: {fileID: 4958084226908890638}
   - component: {fileID: 8314063553616161195}
   - component: {fileID: 6090427493683092833}
-  - component: {fileID: 1954354095381805817}
   m_Layer: 10
   m_Name: Mirror
   m_TagString: Untagged
@@ -177,17 +161,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &1954354095381805817
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5730118013536926900}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2723260613333405795, guid: c4d03a94595bd1145b64b489e17eede0, type: 3}
