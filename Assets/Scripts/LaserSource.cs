@@ -8,6 +8,7 @@ public class LaserSource : MonoBehaviour
 
 	private int _mirrorLayer;
 	private int _blockerLayer;
+	private int _recieverLayer;
 
 	private List<Vector3> _positions = new List<Vector3>();
 
@@ -15,6 +16,7 @@ public class LaserSource : MonoBehaviour
 	{
 		_mirrorLayer = LayerMask.NameToLayer("Mirror");
 		_blockerLayer = LayerMask.NameToLayer("Blocker");
+		_recieverLayer = LayerMask.NameToLayer("Reciever");
 	}
 
 	private void FixedUpdate()
@@ -40,16 +42,21 @@ public class LaserSource : MonoBehaviour
 			return;
 		}
 
-		int mask = (1 << _mirrorLayer) | (1 << _blockerLayer);
+		int mask = (1 << _mirrorLayer) | (1 << _blockerLayer) | (1 << _recieverLayer);
 		if (Physics.Raycast(_positions[_positions.Count - 1], forward, out RaycastHit hit, 10f, mask))
 		{
 			_positions.Add(hit.point);
+			
 			if (hit.transform.gameObject.layer == _mirrorLayer)
 			{
 				//v1 = -2 * (v0 . N) * N + v0
 				Vector3 v0 = forward.normalized;
 				Vector3 v1 = Vector3.Reflect(v0, hit.normal); //-2 * Vector3.Dot(v0,hit.normal) * hit.normal + v0;
 				ShootRaycast(boncesLeft-1, v1);
+			}
+			else if (hit.transform.gameObject.layer == _recieverLayer)
+			{
+				//TODO: win
 			}
 		}
 		else
