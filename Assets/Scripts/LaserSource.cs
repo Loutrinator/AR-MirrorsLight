@@ -6,6 +6,8 @@ public class LaserSource : MonoBehaviour
 	public int maxBounces = 10;
 	public LineRenderer laser;
 
+	public LevelManager LevelManager;
+
 	private int _mirrorLayer;
 	private int _blockerLayer;
 	private int _recieverLayer;
@@ -56,7 +58,7 @@ public class LaserSource : MonoBehaviour
 			}
 			else if (hit.transform.gameObject.layer == _recieverLayer)
 			{
-				//TODO: win
+				LevelManager.Win();
 			}
 		}
 		else
