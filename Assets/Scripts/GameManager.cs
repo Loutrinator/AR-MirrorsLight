@@ -5,8 +5,10 @@ public class GameManager : MonoBehaviour
 {
 	public List<GameObject> levelPrefabs;
 	public Transform levelTargetTransform;
-
+	
 	private LevelManagerBase _currentLevel;
+
+	public bool MainTargetFound { get; private set; } = false;
 
 	public void Start()
 	{
@@ -19,5 +21,14 @@ public class GameManager : MonoBehaviour
 		Debug.Log("Win!");
 		Destroy(_currentLevel.gameObject);
 		_currentLevel = null;
+	}
+
+	public void LevelTargetScanned()
+	{
+		MainTargetFound = true;
+	}
+	public void LevelTargetLost()
+	{
+		MainTargetFound = false;
 	}
 }
