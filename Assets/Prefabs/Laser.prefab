@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1130633627526312565}
+  - component: {fileID: 1984773456238370855}
   - component: {fileID: 915331731820042504}
   m_Layer: 0
-  m_Name: Line
+  m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,6 +32,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1984773456238370855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5269169072323264092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eebda5cf3aef0cc4c805bc2f29a7b560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserRenderer: {fileID: 915331731820042504}
+  laserPrefab: {fileID: 5269169072323264092}
 --- !u!120 &915331731820042504
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -73,7 +88,7 @@ LineRenderer:
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.005
+    widthMultiplier: 0.001
     widthCurve:
       serializedVersion: 2
       m_Curve:

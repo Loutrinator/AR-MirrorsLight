@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1246810566938029523}
   - component: {fileID: 3938812197728917785}
   - component: {fileID: 1936310629737855877}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Receiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,10 +107,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5137072736174970093}
   - component: {fileID: 8638801450133337450}
+  - component: {fileID: 145581707022019668}
   - component: {fileID: 7923125097197704202}
   - component: {fileID: 5805036949967354169}
   - component: {fileID: 7482094331540320584}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: prism
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,6 +140,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5145804008833833789}
   m_Mesh: {fileID: -6875603191141184912, guid: acb01aee1b20c5f4aaee71477bbae459, type: 3}
+--- !u!114 &145581707022019668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5145804008833833789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 264ae5eb3a1640b295359c9f7cf855d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &7923125097197704202
 MeshRenderer:
   m_ObjectHideFlags: 0
