@@ -10,10 +10,13 @@ public class MainMenuManager : MonoBehaviour
     public TextMeshProUGUI debugText;
     public string targetNotFoundText = "Please scan the main target.";
     public string targetFoundText = "Ready !";
-        
+
+    public GameObject mainLayout;
+    
     public void Play()
     {
-        Debug.Log("Play !");
+        Debug.Log("Play");
+        mainLayout.SetActive(false);
     }
 
     private void Update()

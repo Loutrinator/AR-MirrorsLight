@@ -23,6 +23,11 @@ public class GameManager : MonoBehaviour
 		_currentLevel = null;
 	}
 
+	public void StartGame()
+	{
+		
+	}
+	
 	public void LevelTargetScanned()
 	{
 		MainTargetFound = true;
