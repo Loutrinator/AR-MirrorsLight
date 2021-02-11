@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 	public List<GameObject> levelPrefabs;
 	public Transform levelTargetTransform;
 	public List<GameObject> mirrors;
+	public MainMenuManager mainUI;
 	public LevelManagerBase CurrentLevel { get; private set; }
 	private int levelPos = 0;
 	
@@ -13,14 +14,17 @@ public class GameManager : MonoBehaviour
 
 	public void Start()
 	{
-		StartGame(levelPos);
 	}
 	
 	public void Win()
 	{
 		Debug.Log("Win!");
-		Destroy(CurrentLevel.gameObject);
-		CurrentLevel = null;
+		mainUI.ShowWin();
+	}
+
+	public void Play()
+	{
+		StartGame(levelPos);
 	}
 
 	public void StartGame(int pos)
@@ -42,6 +46,8 @@ public class GameManager : MonoBehaviour
 	}
 	public void LoadNextLevel()
 	{
+		Destroy(CurrentLevel.gameObject);
+		CurrentLevel = null;
 		levelPos++;
 		StartGame(levelPos);
 	}

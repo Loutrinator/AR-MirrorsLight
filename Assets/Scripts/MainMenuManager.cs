@@ -14,12 +14,28 @@ public class MainMenuManager : MonoBehaviour
 
     public GameObject mainLayout;
     public GameObject gameLayout;
+    public GameObject winLayout;
     
     public void Play()
     {
         Debug.Log("Play");
         mainLayout.SetActive(false);
         gameLayout.SetActive(true);
+        gm.Play();
+    }
+    public void ShowWin()
+    {
+        Debug.Log("ShowWin");
+        gameLayout.SetActive(false);
+        winLayout.SetActive(true);
+        gm.Play();
+    }
+    public void NextLevel()
+    {
+        Debug.Log("NextLevel");
+        winLayout.SetActive(false);
+        gameLayout.SetActive(true);
+        gm.LoadNextLevel();
     }
 
     private void Update()
@@ -33,12 +49,15 @@ public class MainMenuManager : MonoBehaviour
             debugText.text = targetNotFoundText;    
         }
 
-        int mirrorCount = gm.CurrentLevel.mirrorlimit;
-        string plural = "";
-        if (mirrorCount > 1)
+        if (gm.CurrentLevel != null)
         {
-            plural = "s";
+            int mirrorCount = gm.CurrentLevel.mirrorlimit;
+            string plural = "";
+            if (mirrorCount > 1)
+            {
+                plural = "s";
+            }
+            maxMirrorsCount.text = mirrorCount + " mirror" + plural + " allowed";
         }
-        maxMirrorsCount.text = mirrorCount + " mirror" + plural + " allowed";
     }
 }
