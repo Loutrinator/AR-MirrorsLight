@@ -1,6 +1,6 @@
 ﻿public class LevelManager : LevelManagerBase
 {
-    public void Win()
+    public void Win()       
     {
         _gameManager.Win();
     }
