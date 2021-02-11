@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: 4bc5fd733b147194692297d23f623541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: MirrorTarget2
+  mTrackableName: target2
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/MirrorsLight.xml
   mAspectRatio: 1
