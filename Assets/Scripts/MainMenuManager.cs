@@ -28,7 +28,6 @@ public class MainMenuManager : MonoBehaviour
         Debug.Log("ShowWin");
         gameLayout.SetActive(false);
         winLayout.SetActive(true);
-        gm.Play();
     }
     public void NextLevel()
     {
