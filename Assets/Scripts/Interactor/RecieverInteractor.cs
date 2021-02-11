@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +11,17 @@ namespace Interactor
 
 		private bool _lastFrameHit;
 		private bool _thisFrameHit;
+
+		public MeshRenderer meshRenderer;
+
+		public Material offMaterial;
+		public Material onMaterial;
+
+		private void Start()
+		{
+			RecieverActivation.AddListener(() => meshRenderer.sharedMaterial = onMaterial);
+			RecieverDesactivation.AddListener(() => meshRenderer.sharedMaterial = offMaterial);
+		}
 
 		public void OnHit(RaycastHit hit, Laser laser)
 		{
